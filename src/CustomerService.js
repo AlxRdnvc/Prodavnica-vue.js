@@ -22,6 +22,7 @@ const customers = [
     }
 ]
 
+let nextId = 5;
 class CustomerService {
     list() {
         return customers;
@@ -29,6 +30,12 @@ class CustomerService {
 
     deleteCustomer(customer) {
         customers.splice(customers.indexOf(customer), 1)
+    }
+
+    addCustomer(newCustomer){
+        customers.push(newCustomer);
+        newCustomer.id = nextId;
+        nextId++;
     }
 }
 

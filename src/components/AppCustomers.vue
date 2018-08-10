@@ -1,6 +1,18 @@
 <template>
   <div>
     <h1>Customers</h1>
+    <form @submit.prevent>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input v-model="newCustomer.fullName" type="text" class="form-control" id="name" placeholder="name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input v-model="newCustomer.email" type="email" class="form-control" id="email" placeholder="email">
+      </div>
+      <button @click="addCustomer()" type="submit" class="btn btn-primary">Add Customer</button>
+    </form><br><br>
+
     <table class="table">
       <thead>
         <tr>
@@ -16,7 +28,7 @@
           <td><button @click="deleteCustomerNow(customer)">Delete</button></td>
         </tr>
       </tbody>
-    </table>
+    </table>  
   </div>
 </template>
 
@@ -29,13 +41,19 @@ export default {
   
   data() {
     return {
-      customers: customerService.list()
+      customers: customerService.list(),
+      newCustomer: {}
     }
   },
 
   methods: {
     deleteCustomerNow(customer){
         customers: customerService.deleteCustomer(customer)
+    },
+
+    addCustomer(newCustomer){
+      customerService.addCustomer(this.newCustomer)
+      this.newCustomer = {}
     }
   }
 }
