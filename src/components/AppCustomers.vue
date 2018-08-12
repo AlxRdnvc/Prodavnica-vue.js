@@ -19,6 +19,7 @@
           <th>Name</th>
           <th>Email</th>
           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +27,7 @@
           <td>{{ customer.fullName }}</td>
           <td>{{ customer.email }}</td>
           <td><button @click="deleteCustomerNow(customer)">Delete</button></td>
+            <router-link :to="{ name: 'latestPurchases', params: {id: customer.id}}">Latest Purchases</router-link>
         </tr>
       </tbody>
     </table>  
@@ -48,7 +50,7 @@ export default {
 
   methods: {
     deleteCustomerNow(customer){
-        customers: customerService.deleteCustomer(customer)
+        customerService.deleteCustomer(customer)
     },
 
     addCustomer(newCustomer){
