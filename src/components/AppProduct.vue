@@ -11,6 +11,7 @@
           <th>Quantitiy</th>
           <th></th>
           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +21,11 @@
           <td v-else>{{ product.quantity }}</td>
           <td><button @click="increment(product)">+</button></td>
           <td><button @click="decrement(product)">-</button></td>
+          <td>
+            <router-link :to="{ name: 'PurchaseProduct', params: {id: product.id}}">
+              <button>Buy</button>
+            </router-link>
+          </td>
         </tr>
       </tbody>
     </table>

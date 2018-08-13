@@ -36,6 +36,10 @@ class ProductService {
             return product.quantity--;
         }
     }
+    findProduct(productId){
+        
+        return products.find(product => product.id == productId);
+    }
 }
 
 

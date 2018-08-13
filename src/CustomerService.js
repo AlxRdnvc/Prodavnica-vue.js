@@ -46,6 +46,10 @@ class CustomerService {
         
         return customers.find(customer => customer.id == custId);
     }
+
+    addProduct(customer, product) {
+        customer.products.push(product);
+    }
 }
 
 

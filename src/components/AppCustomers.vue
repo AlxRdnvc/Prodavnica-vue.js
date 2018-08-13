@@ -26,8 +26,9 @@
         <tr v-for="customer in customers" :key="customer.id">
           <td>{{ customer.fullName }}</td>
           <td>{{ customer.email }}</td>
-          <td><button @click="deleteCustomerNow(customer)">Delete</button></td>
+          <td>
             <router-link :to="{ name: 'latestPurchases', params: {id: customer.id}}">Latest Purchases</router-link>
+          </td>
         </tr>
       </tbody>
     </table>  
