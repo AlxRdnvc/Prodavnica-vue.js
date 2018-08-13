@@ -22,10 +22,19 @@ const products = [
     }
 ]
 
-
 class ProductService {
     list() {
         return products;
+    }
+    incrementQuantity(product){
+        product.quantity++;
+    }
+    decrementQuantity(product){
+        if(product.quantity < 1){
+            alert('We are out of stock...')
+        } else {
+            return product.quantity--;
+        }
     }
 }
 
